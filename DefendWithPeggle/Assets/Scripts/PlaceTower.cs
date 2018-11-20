@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class PlaceTower : MonoBehaviour {
 
-    public Color hoverColor;
-    public Color startColor;
 
     [Header("Not critical")]
     public GameObject tower;
-
-    private Renderer rend;
+    public Sprite sprite;
 
     BuildManager buildManager;
 
@@ -35,6 +32,7 @@ public class PlaceTower : MonoBehaviour {
         if (canPlaceTower())
         {
             buildManager.BuildTower(this);
+            transform.GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 
@@ -42,28 +40,21 @@ public class PlaceTower : MonoBehaviour {
     {
         tower = turret;
     }
-
-
- /* 
+ 
     private void OnMouseEnter()
     {
         if (!buildManager.CanBuild)
         {
             return;
         }
-
-        rend.material.color = hoverColor;
+        transform.GetComponent<SpriteRenderer>().color = Color.blue;
     }
 
     private void OnMouseExit()
     {
-        if (buildManager.GetTowerToBuild() == null)
-        {
-            return;
-        }
+        transform.GetComponent<SpriteRenderer>().color = Color.white;
 
-        rend.material.color = startColor;
     }
-*/
+
 
 }
