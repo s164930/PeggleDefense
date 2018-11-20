@@ -29,11 +29,15 @@ public class PlaceTower : MonoBehaviour {
             return;
         }
 
+
         if (canPlaceTower())
         {
             buildManager.BuildTower(this);
             transform.GetComponent<SpriteRenderer>().sprite = null;
+
         }
+
+
     }
 
     public void setTurretToBuild(GameObject turret)
