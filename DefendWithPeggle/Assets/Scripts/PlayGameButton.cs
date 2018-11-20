@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayGameButton : MonoBehaviour {
-
+    public SceneFader fader;
 	public void StartGame()
     {
-        SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
+        fader.FadeTo("LevelSelect");
     }
 }

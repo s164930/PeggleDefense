@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelectScript : MonoBehaviour {
 
-
+    public SceneFader fader;
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey("escape"))
         {
-            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+            fader.FadeTo("MainMenu");
         }
 	}
 }
