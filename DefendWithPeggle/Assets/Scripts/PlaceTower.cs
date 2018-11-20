@@ -4,36 +4,66 @@ using UnityEngine;
 
 public class PlaceTower : MonoBehaviour {
 
-    public GameObject towerPrefab;
-    private GameObject tower;
+    public Color hoverColor;
+    public Color startColor;
 
-    private bool canPlaceTower()
+    [Header("Not critical")]
+    public GameObject tower;
+
+    private Renderer rend;
+
+    BuildManager buildManager;
+
+    private void Start()
+    {
+        buildManager = BuildManager.instance;
+    }
+
+
+    public bool canPlaceTower()
     {
         return tower == null;
     }
 
     private void OnMouseUp()
     {
+        if (!buildManager.CanBuild)
+        {
+            return;
+        }
+
         if (canPlaceTower())
         {
-            tower = (GameObject)Instantiate(towerPrefab, transform.position, Quaternion.identity);
-
-            AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-            audioSource.PlayOneShot(audioSource.clip);
-
+            buildManager.BuildTower(this);
         }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void setTurretToBuild(GameObject turret)
+    {
+        tower = turret;
+    }
 
 
+ /* 
+    private void OnMouseEnter()
+    {
+        if (!buildManager.CanBuild)
+        {
+            return;
+        }
+
+        rend.material.color = hoverColor;
+    }
+
+    private void OnMouseExit()
+    {
+        if (buildManager.GetTowerToBuild() == null)
+        {
+            return;
+        }
+
+        rend.material.color = startColor;
+    }
+*/
 
 }
