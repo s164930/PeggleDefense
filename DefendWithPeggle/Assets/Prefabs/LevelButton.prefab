@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114208321490917914}
   - component: {fileID: 114343993677071846}
   - component: {fileID: 95561792227498840}
+  - component: {fileID: 114690257670287264}
   m_Layer: 5
   m_Name: LevelButton
   m_TagString: Untagged
@@ -105,9 +106,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Select
-        m_Mode: 5
+      - m_Target: {fileID: 114690257670287264}
+        m_MethodName: StartLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -159,6 +160,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114690257670287264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531901271218698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef96e0ba0788d24b9e64b7fc20af888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fader: {fileID: 114227740844605776, guid: c903627e1a885284681af7cd66c2b3fb, type: 2}
 --- !u!114 &114805382329605524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,7 +204,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 
 --- !u!222 &222345928747300696
 CanvasRenderer:
   m_ObjectHideFlags: 1
