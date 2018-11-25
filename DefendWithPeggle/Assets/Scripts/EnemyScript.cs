@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    Grid grid;
+
+	void FindPath(Vector3 startPos, Vector3 targetPos)
+    {
+
+    }
 }
