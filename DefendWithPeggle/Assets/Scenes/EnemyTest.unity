@@ -228,6 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2636db656cfaa124ba80209e1256d104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayOnlyPath: 1
   enemy: {fileID: 877395193}
   gridWorldSize: {x: 10.19, y: 12.9}
   nodeRadius: 0.25

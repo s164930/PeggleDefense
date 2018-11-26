@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PathfinderGrid : MonoBehaviour {
 
+    public bool displayGridGizmos;
     public Transform enemy;
     public Vector2 gridWorldSize;
     public float nodeRadius;
@@ -18,6 +19,14 @@ public class PathfinderGrid : MonoBehaviour {
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         CreateGrid();
+    }
+
+    public int MaxSize
+    {
+        get
+        {
+            return gridSizeX* gridSizeY;
+        }
     }
 
     private void CreateGrid()
@@ -74,25 +83,20 @@ public class PathfinderGrid : MonoBehaviour {
         return grid[x, y];
     }
 
-    public List<Node> path;
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
-        if (grid != null)
+    Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
+
+       
+        if (grid != null && displayGridGizmos)
         {
-            foreach(Node node in grid)
+            foreach (Node node in grid)
             {
-                Gizmos.color = (node.walkable)?Color.white:Color.red;
-                if(node == NodeFromWorldPoint(enemy.position)) { Gizmos.color = Color.cyan; }
-                
-                if(path != null)
-                {
-                    if (path.Contains(node)) {
-                        Gizmos.color = Color.black;
-                    }
-                }
-                Gizmos.DrawCube(node.worldPosition, new Vector3(1,1,0.01f)*(nodeDiameter-.1f));
+                Gizmos.color = (node.walkable) ? Color.white : Color.red;
+                Gizmos.DrawCube(node.worldPosition, new Vector3(1, 1, 0.01f) * (nodeDiameter - .1f));
             }
         }
     }
+        
+    
 }
