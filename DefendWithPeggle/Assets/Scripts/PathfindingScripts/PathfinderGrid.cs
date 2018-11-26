@@ -13,7 +13,7 @@ public class PathfinderGrid : MonoBehaviour {
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
-    private void Start()
+    private void Awake()
     {
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
