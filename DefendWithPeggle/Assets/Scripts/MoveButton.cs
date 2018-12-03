@@ -9,7 +9,7 @@ public class MoveButton : MonoBehaviour {
 
     public void SceneChange()
     {
-        fader.FadeTo("SampleScene");
+        fader.FadeTo("Level_1_Play");
     }
 
 
