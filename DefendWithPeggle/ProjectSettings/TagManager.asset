@@ -6,6 +6,11 @@ TagManager:
   tags:
   - FaderTag
   - Ignore
+  - Towers
+  - Clean
+  - Enemy
+  - Ball
+  - PlayerHP
   layers:
   - Default
   - TransparentFX
@@ -17,7 +22,7 @@ TagManager:
   - 
   - unwalkable
   - nocollision
-  - 
+  - enemyDetect
   - 
   - 
   - 

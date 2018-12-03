@@ -5,13 +5,37 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour {
 
     public Transform target;
-    float speed = 5;
+
+    public float speed = 5;
+    public int HP = 100;
+
     Vector3[] path;
     int targetIndex;
 
     private void Start()
     {
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        Debug.Log("anything");
+    }
+
+    public void ApplyDamage(int damage)
+    {
+        if (0 < HP)
+        {
+            HP -= damage;
+            Debug.Log(damage);
+        }
+
+        if (HP <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        
     }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)

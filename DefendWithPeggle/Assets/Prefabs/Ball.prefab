@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 212526891306294270}
   - component: {fileID: 58261379088229270}
   - component: {fileID: 50442239593203904}
-  - component: {fileID: 114820306641104232}
+  - component: {fileID: 114911033948988300}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,14 +54,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 2
+  m_LinearDrag: 0.2
   m_AngularDrag: 0.05
   m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &58261379088229270
 CircleCollider2D:
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
---- !u!114 &114820306641104232
+--- !u!114 &114911033948988300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,10 +86,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1137822455973132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407300e58da6721419d0df826d67b9ce, type: 3}
+  m_Script: {fileID: 11500000, guid: f726864075e8a7441b81ded7628380a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collObject: {fileID: 1111225458574342, guid: b470e55309ba404478ec3d612b34c4eb, type: 2}
 --- !u!212 &212526891306294270
 SpriteRenderer:
   m_ObjectHideFlags: 1
