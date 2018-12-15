@@ -6,6 +6,7 @@ using System;
 public class Pathfinding : MonoBehaviour {
     PathfinderGrid grid;
     PathRequestManager requestManager;
+    public int spaceBetweenWaypoints;
 
     private void Awake()
     {
@@ -93,12 +94,15 @@ public class Pathfinding : MonoBehaviour {
     {
         List<Vector3> waypoints = new List<Vector3>();
         Vector2 directionOld = Vector2.zero;
+        int makeWaypoint = 0;
         for(int i = 1; i < path.Count; i++)
         {
+            makeWaypoint += 1;
             Vector2 directionNew = new Vector2(path[i - 1].gridX - path[i].gridX, path[i-1].gridY - path[i].gridY);
-            if( directionNew != directionOld)
+            if( directionNew != directionOld || makeWaypoint > spaceBetweenWaypoints)
             {
                 waypoints.Add(path[i].worldPosition);
+                makeWaypoint = 0;
             }
             directionOld = directionNew;
         }

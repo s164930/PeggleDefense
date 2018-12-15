@@ -5,16 +5,38 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour {
 
     public Transform target;
-
+    private float oldX = 0.0f, newX;
     public float speed = 5;
     public int HP = 100;
-
+    float timeSincePathUpdate;
     Vector3[] path;
     int targetIndex;
+    public PlayerScript playerManager;
 
     private void Start()
     {
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+        timeSincePathUpdate = Time.time;
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerScript>();
+    }
+
+    public void Update()
+    {
+        if(transform.position.y >= target.position.y - 1)
+        {
+            playerManager.TakeDamage(1);
+            Destroy(this.gameObject);
+        }
+        newX = target.position.x;
+        if (Time.time - timeSincePathUpdate > 1f)
+        {
+            timeSincePathUpdate = Time.time;
+            if (newX != oldX)
+            {
+                PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
+            }           
+        }
+        oldX = newX;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +50,6 @@ public class EnemyScript : MonoBehaviour {
         if (0 < HP)
         {
             HP -= damage;
-            Debug.Log(damage);
         }
 
         if (HP <= 0)

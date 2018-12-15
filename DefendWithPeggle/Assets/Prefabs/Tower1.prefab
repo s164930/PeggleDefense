@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114045002982759198}
   - component: {fileID: 114505622102205720}
   - component: {fileID: 120131914350042926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tower1
   m_TagString: Towers
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.09
 --- !u!114 &114045002982759198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,6 +86,7 @@ MonoBehaviour:
   enemyDetect:
     serializedVersion: 2
     m_Bits: 1024
+  explosion: {fileID: 1720249133450768, guid: d3d4fb7f2d6378a438512e0bd54c8331, type: 2}
 --- !u!120 &120131914350042926
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -120,7 +121,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}

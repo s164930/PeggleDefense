@@ -15,7 +15,15 @@ public class SceneFader : MonoBehaviour {
     }
 
     public void FadeTo(string scene)
-    {
+    {   
+        if(scene == "LevelSelect")
+        {
+            GameObject[] list = GameObject.FindGameObjectsWithTag("Towers");
+            for (int i = 0; i < list.Length; i++)
+            {
+                Destroy(list[i]);
+            }
+        }
         StartCoroutine(FadeOut(scene));
     }
 

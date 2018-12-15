@@ -8,19 +8,20 @@ public class Firepoint : MonoBehaviour {
     public GameObject ball;
     public float forceIncrease = 5f;
     public Image process;
+    public int maxBalls;
 
     private bool isPressed = false;
 	// Update is called once per frame
 	void Update () {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         direction = direction.normalized;
+        int numberOfBalls = GameObject.FindGameObjectsWithTag("Ball").Length;
 
-
-        if (Input.GetMouseButtonDown(0) && !isPressed)
+        if (Input.GetMouseButtonDown(0) && !isPressed && numberOfBalls < maxBalls)
         {
             isPressed = true;
         }
-        if (Input.GetMouseButtonUp(0)){
+        if (Input.GetMouseButtonUp(0) && numberOfBalls < maxBalls){
             isPressed = false;
             GameObject newBullet = Instantiate(ball, transform.position, transform.rotation);
             Rigidbody2D rigid = newBullet.GetComponent<Rigidbody2D>();
